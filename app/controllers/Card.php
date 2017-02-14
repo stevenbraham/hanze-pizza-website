@@ -46,4 +46,8 @@ class Card extends Controller {
             $this->redirectTo('card', 'view');
         }
     }
+
+    public function View() {
+        $this->render('view', ['card' => \App\Models\Card::getCard()]);
+    }
 }

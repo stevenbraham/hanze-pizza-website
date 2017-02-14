@@ -4,16 +4,17 @@
             Welcome!
         </h1>
         <form action="?controller=card&action=add" method="post">
-            <input type="hidden"/>
+            <input type="hidden" name="referrer" value="home"/>
             <label>
                 Choose your pizza
             </label>
             <?php
             foreach ($params['pizzas'] as $key => $pizza) {
+                echo '<input type="hidden" value="' . $pizza['price'] . '" name="price"/>';
                 ?>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="pizza" value="<?= $pizza['name'] ?>" <?= $key === 0 ? 'checked' : '' //key = 0 is first item, so I want it checked      ?>>
+                        <input type="radio" name="pizza" value="<?= $pizza['name'] ?>" <?= $key === 0 ? 'checked' : '' //key = 0 is first item, so I want it checked        ?>>
                         <img src="assets/products/<?= $pizza['id'] ?>.png" class="pizza"/>
 
                         <?= $pizza['name'] ?>

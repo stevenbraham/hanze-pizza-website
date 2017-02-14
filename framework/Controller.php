@@ -49,4 +49,13 @@ abstract class Controller {
         require $requestedView;
         require FRAMEWORK_BASE_PATH . 'app/views/layout/footer.php';
     }
+
+    /**
+     * Redirects the page to a location
+     * @param string $controller
+     * @param string $action
+     */
+    public function redirectTo($controller, $action) {
+        header('Location: index.php?' . http_build_query(['action' => $action, 'controller' => $controller]));
+    }
 }

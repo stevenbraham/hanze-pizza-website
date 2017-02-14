@@ -1,4 +1,5 @@
 <?php
+session_start();
 //code I used during developing to debug my application
 error_reporting(E_ALL);
 ini_set('display_errors', '1');

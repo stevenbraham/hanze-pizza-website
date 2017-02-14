@@ -48,7 +48,7 @@ final class Utils {
             //invalid mode used
             throw new \Exception("Unsupported mode used, please use 'post' or 'get'");
         }
-        $value = filter_input(INPUT_GET, $name);
+        $value = filter_input($supportedModes[$mode], $name);
         //check if value from post/get is valid, otherwise return $default
         return !empty($value) ? $value : $default; //short hand if statement for cleaner code
     }

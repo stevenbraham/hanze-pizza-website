@@ -8,6 +8,7 @@
 
 namespace Framework;
 
+use App\Controllers\Card;
 use App\Controllers\Home;
 
 /**
@@ -30,7 +31,15 @@ class Router {
                     default:
                         break;
                 }
-                $home->index();
+            case "card":
+                $card = new Card();
+                switch ($action) {
+                    case "add":
+                        return $card->add();
+                        break;
+                    default:
+                        break;
+                }
             default:
                 break;
                 //if this line is reached, there was no valid controller/function

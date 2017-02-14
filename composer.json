@@ -1,0 +1,13 @@
+{
+  "name": "stevenbraham/hanze-pizza-website",
+  "description": "School assignment, see readme.md",
+  "license": "apache2",
+  "authors": [
+    {
+      "name": "Steven Braham",
+      "email": "s.r.braham@st.hanze.nl"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {}
+}

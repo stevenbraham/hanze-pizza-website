@@ -18,7 +18,7 @@ class Router {
     public function parseRequest() {
         //first I retrieve the page the person wants to view
         $controller = Utils::getInputParameter('controller', 'get', 'home');
-        $action = Utils::getInputParameter('controller', 'get', 'index');
+        $action = Utils::getInputParameter('action', 'get', 'index');
         //TODO:dynamic controller/action path
         switch ($controller) {
             case "home":

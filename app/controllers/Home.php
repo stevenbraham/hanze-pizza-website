@@ -13,6 +13,7 @@ use Framework\Controller;
 
 class Home extends Controller {
     public function index() {
+        //simulate db call
         $this->render('index');
     }
 }

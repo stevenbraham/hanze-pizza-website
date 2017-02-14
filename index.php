@@ -15,10 +15,17 @@ foreach ($frameworkFiles as $frameworkFile) {
 
 //use the same way to include all controllers and models
 
-$appFiles = glob('app/controllers/*.php');
-foreach ($appFiles as $appFile) {
-    if (file_exists($appFile)) {
-        require_once $appFile;
+$controllerFiles = glob('app/controllers/*.php');
+foreach ($controllerFiles as $controllerFile) {
+    if (file_exists($controllerFile)) {
+        require_once $controllerFile;
+    }
+}
+
+$modelFiles = glob('app/models/*.php');
+foreach ($modelFiles as $modelFile) {
+    if (file_exists($modelFile)) {
+        require_once $modelFile;
     }
 }
 

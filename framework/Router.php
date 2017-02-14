@@ -37,6 +37,9 @@ class Router {
                     case "add":
                         return $card->add();
                         break;
+                    case "pay":
+                        return $card->pay();
+                        break;
                     case "view":
                         return $card->view();
                         break;

@@ -47,7 +47,17 @@ class Card extends Controller {
         }
     }
 
+    /**
+     * Nice table overview of card
+     */
     public function View() {
         $this->render('view', ['card' => \App\Models\Card::getCard()]);
+    }
+
+    public function Pay() {
+        //destroy session;
+        \App\Models\Card::resetCard();
+        session_destroy();
+        $this->render('pay');
     }
 }

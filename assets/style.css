@@ -1,3 +1,21 @@
+body > nav.navbar.navbar-inverse.navbar-static-top {
+    margin: 0;
+}
+
+.pizza {
+    width: auto;
+    height: 2em;
+}
+
+form label {
+    font-weight: bold;
+    font-size: 105%;
+}
+
+.radio input {
+    margin-top: 12px;
+}
+
 #copyright {
     color: #ffffff;
     font-size: 120%;

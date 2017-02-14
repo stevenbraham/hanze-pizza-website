@@ -9,11 +9,21 @@
 namespace App\Controllers;
 
 
+use App\Models\Bottoms;
+use App\Models\Compositions;
+use App\Models\Pizza;
+use App\Models\Sizes;
 use Framework\Controller;
 
 class Home extends Controller {
     public function index() {
         //simulate db call
-        $this->render('index');
+        $data = [
+            'pizzas' => Pizza::all(),
+            'bottoms' => Bottoms::all(),
+            'sizes' => Sizes::all(),
+            'compositions' => Compositions::all()
+        ];
+        $this->render('index', $data);
     }
 }

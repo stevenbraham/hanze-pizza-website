@@ -34,6 +34,8 @@ abstract class Controller {
             throw new \Exception('View ' . $viewName . ' not found in path' . $requestedView);
             die;
         }
+        //explode params so the vars can be used normally in the views
+        extract($params);
         if ($return === true) {
             //use object buffer to catch the output of the require statements
             ob_start();

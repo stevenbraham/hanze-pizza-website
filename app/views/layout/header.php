@@ -17,7 +17,7 @@
             <a class="navbar-brand" href=".">Pizza plaza</a>
         </div>
         <div class="navbar-right">
-            <button type="button" class="btn btn-success navbar-btn"><i class="fa fa-shopping-cart"></i> &euro;0.00</button>
+            <a href="?controller=card&action=view" class="btn btn-success navbar-btn"><i class="fa fa-shopping-cart"></i> &euro;<?= number_format(\App\Models\Card::getTotalPrice(), 2) ?></a>
         </div>
     </div>
 </nav>

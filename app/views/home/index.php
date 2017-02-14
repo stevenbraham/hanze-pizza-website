@@ -1,3 +1,7 @@
+<?php
+use App\Models\Card;
+
+?>
 <div class="row">
     <div class="col-md-6">
         <h1>
@@ -14,7 +18,7 @@
                 ?>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="pizza" value="<?= $pizza['name'] ?>" <?= $key === 0 ? 'checked' : '' //key = 0 is first item, so I want it checked        ?>>
+                        <input type="radio" name="pizza" value="<?= $pizza['name'] ?>" <?= $key === 0 ? 'checked' : '' //key = 0 is first item, so I want it checked                 ?>>
                         <img src="assets/products/<?= $pizza['id'] ?>.png" class="pizza"/>
 
                         <?= $pizza['name'] ?>
@@ -71,6 +75,26 @@
     <div class="col-md-3 col-md-offset-3">
         <div class="card">
             <h2>Your card</h2>
+            <?php
+            if (count($card) > 0) {
+                foreach ($card as $id => $order) {
+                    ?>
+                    <form action="?controller=card&action=delete" method="post">
+                        <input type="hidden" name="referrer" value="home"/>
+                        <input type="hidden" name="id" value="<?= $id ?>"/>
+                        <h4>
+                            <button class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button> <?= $order['pizza'] ?> (&euro;<?= number_format($order['amount'] * $order['price'], 2) ?>)
+                        </h4>
+                        <small><?= $order['bottom'] . ', ' . $order['composition'] . ', ' . $order['size'] . ', ' . $order['amount'] . 'x' ?></small>
+                        <hr/>
+                    </form>
+                    <?php
+                }
+                echo '<a href="?controller=card&action=view" class="btn btn-block btn-warning">&euro;' . number_format(Card::getTotalPrice(), 2) . ', checkout</a>';
+            } else {
+                echo "Please add items to your card";
+            }
+            ?>
         </div>
     </div>
 </div>

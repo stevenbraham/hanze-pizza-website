@@ -33,7 +33,7 @@ class Card {
     public static function insert($item) {
         //get card
         $card = static::getCard();
-        //append item to array and give the row an GUID
+        //append item to array and give the row an id, this id can be used to delete it later
         $card[time()] = $item;
         //store item
         $_SESSION['card'] = $card;
@@ -44,5 +44,27 @@ class Card {
      */
     public static function resetCard() {
         session_unset();
+    }
+
+    /**
+     * Gets the price of all pizzas combined
+     * @return float
+     */
+    public static function getTotalPrice() {
+        $price = 0;
+        foreach (static::getCard() as $order) {
+            $price += ($order['price'] * $order['amount']);
+        }
+        return $price;
+    }
+
+    /**
+     * removes an order from the card
+     * @param int $id
+     */
+    public static function delete($id) {
+        $card = static::getCard();
+        unset($card[$id]);
+        $_SESSION['card'] = $card;
     }
 }

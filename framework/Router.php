@@ -37,6 +37,9 @@ class Router {
                     case "add":
                         return $card->add();
                         break;
+                    case "delete":
+                        return $card->delete();
+                        break;
                     default:
                         break;
                 }

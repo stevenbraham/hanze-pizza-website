@@ -10,6 +10,7 @@ namespace App\Controllers;
 
 
 use App\Models\Bottoms;
+use App\Models\Card;
 use App\Models\Compositions;
 use App\Models\Pizza;
 use App\Models\Sizes;
@@ -22,7 +23,8 @@ class Home extends Controller {
             'pizzas' => Pizza::all(),
             'bottoms' => Bottoms::all(),
             'sizes' => Sizes::all(),
-            'compositions' => Compositions::all()
+            'compositions' => Compositions::all(),
+            'card' => Card::getCard()
         ];
         $this->render('index', $data);
     }

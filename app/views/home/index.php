@@ -14,7 +14,6 @@ use App\Models\Card;
             </label>
             <?php
             foreach ($params['pizzas'] as $key => $pizza) {
-                echo '<input type="hidden" value="' . $pizza['price'] . '" name="price"/>';
                 ?>
                 <div class="radio">
                     <label>

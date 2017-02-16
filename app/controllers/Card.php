@@ -9,6 +9,7 @@
 namespace App\Controllers;
 
 
+use App\Models\Pizza;
 use Framework\Controller;
 use Framework\Utils;
 
@@ -16,11 +17,13 @@ class Card extends Controller {
     public function Add() {
         //this function reads the post data and pushes a new order to the session
         $refferer = Utils::getInputParameter('referrer', 'post', 'card');
+        $pizzaName = Utils::getInputParameter('pizza', 'post');
+        //retrieve price from pizza model, normally I would id, but I don't have a database
         //use the Card model to insert a new item
         \App\Models\Card::insert(
             [
-                'pizza' => Utils::getInputParameter('pizza', 'post'),
-                'price' => Utils::getInputParameter('price', 'post'),
+                'pizza' => $pizzaName,
+                'price' => Pizza::getPriceByName($pizzaName),
                 'size' => Utils::getInputParameter('size', 'post'),
                 'bottom' => Utils::getInputParameter('bottom', 'post'),
                 'composition' => Utils::getInputParameter('composition', 'post'),

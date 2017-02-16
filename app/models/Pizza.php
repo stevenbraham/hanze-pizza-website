@@ -29,4 +29,22 @@ class Pizza {
             ]
         ];
     }
+
+    /**
+     * loops over the pizza array and tries to find the price of a pizza
+     * Throws exception if the pizza can't be found
+     * @param $pizzaName
+     * @throws \Exception
+     * @return float
+     */
+    public static function getPriceByName($pizzaName) {
+        $pizzas = static::all();
+        foreach ($pizzas as $pizza) {
+            if ($pizza['name'] == $pizzaName) {
+                return $pizza['price'];
+            }
+        }
+        //invalid name if this line is reached
+        throw new \Exception($pizzaName . ' is not a valid pizza name');
+    }
 }

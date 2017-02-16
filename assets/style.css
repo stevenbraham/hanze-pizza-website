@@ -2,6 +2,10 @@ body > nav.navbar.navbar-inverse.navbar-static-top {
     margin: 0;
 }
 
+body > .container {
+    padding: 60px 0;
+}
+
 .pizza {
     width: auto;
     height: 2em;
